@@ -1,7 +1,7 @@
 /**
  * The first result: the live assistant's grounded answer.
  *
- * Mounted both in the Ask Logi modal and at the top of the results page, so
+ * Mounted both in the Ask Best Tech modal and at the top of the results page, so
  * search and chat always say the same thing. The body is the assistant's own
  * markdown; the product image comes from the catalog; the sources are the
  * indexed support documents it cited.
@@ -39,16 +39,16 @@ export default function LogiAnswer({ query, answer, product, onGo, onContinue, c
   }
 
   return (
-    <section className={`logi-answer${compact ? " is-compact" : ""}`} aria-label="Ask Logi answer">
+    <section className={`logi-answer${compact ? " is-compact" : ""}`} aria-label="Ask Best Tech answer">
       <header className="logi-answer__head">
         <span className="logi-answer__brand">
           <SparkleIcon />
-          Ask Logi
+          Ask Best Tech
         </span>
         {isStreaming ? (
           <span className="logi-answer__status">Answering…</span>
         ) : (
-          <span className="logi-answer__status">From Logitech Support</span>
+          <span className="logi-answer__status">From Best Tech Support</span>
         )}
       </header>
 
@@ -130,14 +130,14 @@ function AnswerBody({ status, text, query }) {
   if (status === "timeout") {
     return (
       <p className="logi-answer__empty">
-        Logi is taking longer than usual to answer. Continue in chat to pick this up there.
+        Best Tech is taking longer than usual to answer. Continue in chat to pick this up there.
       </p>
     );
   }
 
   if (!text) {
     return (
-      <div className="logi-answer__skeleton" aria-live="polite" aria-label={`Asking Logi about ${query}`}>
+      <div className="logi-answer__skeleton" aria-live="polite" aria-label={`Asking Best Tech about ${query}`}>
         <span />
         <span />
         <span />

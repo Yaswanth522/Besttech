@@ -25,10 +25,10 @@ export default function Search() {
 
   useEffect(() => {
     document.title = rawQuery
-      ? `${rawQuery} — Logitech Search`
-      : "Search — Logitech";
+      ? `${rawQuery} — Best Tech Search`
+      : "Search — Best Tech";
     return () => {
-      document.title = "Logitech United States";
+      document.title = "Best Tech United States";
     };
   }, [rawQuery]);
 
@@ -195,7 +195,7 @@ function ShoppingResults({ pack }) {
           <strong>{product.name}</strong>
           <span className="shop-card__tagline">{product.tagline}</span>
           <span className="shop-card__price">${product.price.toFixed(2)}</span>
-          <span className="shop-card__merchant">logitech.com</span>
+          <span className="shop-card__merchant">besttech.com</span>
         </Link>
       ))}
     </section>
@@ -207,7 +207,7 @@ function SupportResults({ pack }) {
     <section className="support-results" aria-label="Support results">
       {pack.support.map((item) => (
         <Link key={item.title} to={item.href} className="support-card">
-          <span className="support-card__kicker">support.logitech.com</span>
+          <span className="support-card__kicker">support.besttech.com</span>
           <h2>{item.title}</h2>
           <p>{item.snippet}</p>
         </Link>

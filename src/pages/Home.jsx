@@ -25,7 +25,7 @@ const SHOP_BY_CATEGORY = [
   { label: "Webcams", image: "/images/home/webcams-2.png" },
   { label: "Microphones", image: "/images/home/microphones-2.png" },
   { label: "iPad Keyboard Cases", image: "/images/home/ipad-keyboard-cases.png" },
-  { label: "Refurbished Products", image: "/images/home/refurbished-products.png" },
+  { label: "Refurbished Products", image: "/images/home/refurbished-products.svg" },
 ];
 
 const SHOP_BY_INTEREST = [

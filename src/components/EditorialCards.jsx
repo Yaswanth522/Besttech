@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Carousel from "./Carousel";
 import "./EditorialCards.css";
 
 const CARDS = [
@@ -37,10 +38,13 @@ const CARDS = [
 export default function EditorialCards() {
   return (
     <section className="editorial-cards">
-      <div className="editorial-cards__row">
+      <div className="container">
+        <Carousel>
         {CARDS.map((card) => (
           <article key={card.heading} className="editorial-card">
-            <img src={card.image} alt="Card Image" loading="lazy" />
+            <div className="editorial-card__media">
+              <img src={card.image} alt="Card Image" loading="lazy" />
+            </div>
             <div className="editorial-card__body">
               <h3>{card.heading}</h3>
               <p>{card.body}</p>
@@ -50,6 +54,7 @@ export default function EditorialCards() {
             </div>
           </article>
         ))}
+        </Carousel>
       </div>
     </section>
   );

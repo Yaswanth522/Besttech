@@ -15,7 +15,7 @@ const REASONS = [
   {
     image: "/images/home/sheerid-icon-new.png",
     heading: "Students and Heroes get 20% Off",
-    body: "Students and Heroes can benefit from a 20% discount on Logitech products. It couldn't be easier.",
+    body: "Students and Heroes can benefit from a 20% discount on Best Tech products. It couldn't be easier.",
     cta: "Get Verified",
   },
   {
@@ -39,12 +39,12 @@ export default function ReasonsToBuy() {
   return (
     <section className="section">
       <div className="container">
-        <h2 className="section-title">Reasons to buy from Logitech.com</h2>
+        <h2 className="section-title">Reasons to buy from BestTech.com</h2>
         <p className="reasons-intro">
           We're all about making your shopping experience seamless. Shop
           direct and enjoy perks like free shipping, multiple payment
           options, easy returns, and access to exclusive offers only on
-          logitech.com.
+          besttech.com.
         </p>
         <div className="reasons-grid">
           {REASONS.map((reason) => (

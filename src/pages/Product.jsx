@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductBySlug, products } from "../data/products";
 import ProductCard from "../components/ProductCard";
+import Carousel from "../components/Carousel";
 import "./Product.css";
 
 export default function Product() {
@@ -125,12 +126,11 @@ export default function Product() {
         </div>
 
         <section className="section">
-          <h2 className="section-title">You May Also Like</h2>
-          <div className="product-grid product-grid--four">
+          <Carousel title="You May Also Like">
             {related.map((p) => (
               <ProductCard key={p.slug} product={p} />
             ))}
-          </div>
+          </Carousel>
         </section>
       </div>
     </div>

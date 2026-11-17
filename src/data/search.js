@@ -41,10 +41,10 @@ export const searchPacks = [
     product: productOf("mx-master-3s"),
     rating: 4.7,
     reviewCount: 613,
-    merchant: "logitech.com",
+    merchant: "besttech.com",
     chips: ["Wireless", "Mice & Trackballs", "Ergonomic", "Quiet Clicks", "Under $100"],
     aiOverview: {
-      lead: "The Logitech MX Master 3S is a high-end, ergonomic wireless mouse built for office productivity and creative work.",
+      lead: "The Best Tech MX Master 3S is a high-end, ergonomic wireless mouse built for office productivity and creative work.",
       highlights: [
         "high-end, ergonomic wireless mouse",
         "8K DPI optical sensor",
@@ -62,7 +62,7 @@ export const searchPacks = [
     },
     sources: [
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Product",
         title: "MX Master 3S — Wireless Performance Mouse",
         snippet:
@@ -71,7 +71,7 @@ export const searchPacks = [
         href: "/products/mx-master-3s",
       },
       {
-        site: "support.logitech.com",
+        site: "support.besttech.com",
         kind: "Support",
         title: "Set up MX Master 3S on Windows or macOS",
         snippet:
@@ -80,7 +80,7 @@ export const searchPacks = [
         href: "/products/mx-master-3s",
       },
       {
-        site: "logitech.com/blog",
+        site: "besttech.com/blog",
         kind: "Guide",
         title: "MX Master 3S vs MX Anywhere 3S: which mouse fits your desk?",
         snippet:
@@ -91,7 +91,7 @@ export const searchPacks = [
     ],
     videos: [
       {
-        title: "Logitech MX Master 3S: Watch this Before Buying",
+        title: "Best Tech MX Master 3S: Watch this Before Buying",
         duration: "8:42",
         image: productOf("mx-master-3s").gallery[1],
         href: "/products/mx-master-3s",
@@ -102,33 +102,33 @@ export const searchPacks = [
         duration: "3:18",
         image: productOf("mx-master-3s").gallery[3],
         href: "/products/mx-master-3s",
-        source: "Logitech",
+        source: "Best Tech",
       },
       {
         title: "Desk setup: MX Master 3S + MX Keys S",
         duration: "6:05",
         image: productOf("mx-keys-s").image,
         href: "/products/mx-keys-s",
-        source: "Logitech",
+        source: "Best Tech",
       },
     ],
     webResults: [
       {
-        urlLabel: "https://www.logitech.com › products › mice › mx-master-3s",
+        urlLabel: "https://www.besttech.com › products › mice › mx-master-3s",
         title: "MX Master 3S Wireless Performance Mouse",
         snippet:
           "A wireless mouse with an 8K DPI sensor, Quiet Clicks, and MagSpeed electromagnetic scrolling — built for creators and anyone who lives on a computer.",
         href: "/products/mx-master-3s",
       },
       {
-        urlLabel: "https://support.logitech.com › mx-master-3s",
+        urlLabel: "https://support.besttech.com › mx-master-3s",
         title: "MX Master 3S — Setup, pairing, and troubleshooting",
         snippet:
           "Download Logi Options+, pair via Bluetooth or Bolt receiver, and remap the gesture button, thumb wheel, and MagSpeed mode.",
         href: "/products/mx-master-3s",
       },
       {
-        urlLabel: "https://www.logitech.com › products › mice › mx-anywhere-3s",
+        urlLabel: "https://www.besttech.com › products › mice › mx-anywhere-3s",
         title: "MX Anywhere 3S Compact Performance Mouse",
         snippet:
           "The same 8K DPI tracking and quiet MagSpeed scrolling in a travel-ready shape that fits in a bag.",
@@ -159,10 +159,10 @@ export const searchPacks = [
     product: productOf("mx-keys-s"),
     rating: 4.6,
     reviewCount: 428,
-    merchant: "logitech.com",
+    merchant: "besttech.com",
     chips: ["Wireless", "Keyboards", "Backlit", "Multi-device", "Under $120"],
     aiOverview: {
-      lead: "MX Keys S is Logitech's wireless illuminated keyboard for people who type all day — smart backlighting, Perfect Stroke keys, and multi-device switching.",
+      lead: "MX Keys S is Best Tech's wireless illuminated keyboard for people who type all day — smart backlighting, Perfect Stroke keys, and multi-device switching.",
       highlights: ["wireless illuminated keyboard", "smart backlighting", "Perfect Stroke keys", "multi-device switching"],
       features: [
         "Smart backlighting that responds to your hands and the room",
@@ -175,7 +175,7 @@ export const searchPacks = [
     },
     sources: [
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Product",
         title: "MX Keys S — Wireless Illuminated Keyboard",
         snippet: "A quieter, smarter typing experience with Perfect Stroke keys and adaptive backlighting.",
@@ -183,7 +183,7 @@ export const searchPacks = [
         href: "/products/mx-keys-s",
       },
       {
-        site: "support.logitech.com",
+        site: "support.besttech.com",
         kind: "Support",
         title: "MX Keys S setup and Easy-Switch",
         snippet: "Pair three devices and jump between them with the Easy-Switch keys above the number row.",
@@ -191,7 +191,7 @@ export const searchPacks = [
         href: "/products/mx-keys-s",
       },
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Bundle",
         title: "Pair MX Keys S with MX Master 3S",
         snippet: "The MX desk — keyboard, mouse, and Flow — is built to feel like one system.",
@@ -205,7 +205,7 @@ export const searchPacks = [
         duration: "5:21",
         image: productOf("mx-keys-s").gallery[0],
         href: "/products/mx-keys-s",
-        source: "Logitech",
+        source: "Best Tech",
       },
       {
         title: "Typing test: MX Keys S vs a mechanical board",
@@ -217,14 +217,14 @@ export const searchPacks = [
     ],
     webResults: [
       {
-        urlLabel: "https://www.logitech.com › products › keyboards › mx-keys-s",
+        urlLabel: "https://www.besttech.com › products › keyboards › mx-keys-s",
         title: "MX Keys S Wireless Illuminated Keyboard",
         snippet:
           "Smart backlighting, Perfect Stroke keys, and multi-OS support in a low-profile wireless keyboard.",
         href: "/products/mx-keys-s",
       },
       {
-        urlLabel: "https://support.logitech.com › mx-keys-s",
+        urlLabel: "https://support.besttech.com › mx-keys-s",
         title: "MX Keys S — pairing, backlight, and firmware",
         snippet: "Update firmware in Logi Options+ and customize the function row per application.",
         href: "/products/mx-keys-s",
@@ -249,7 +249,7 @@ export const searchPacks = [
     product: productOf("mx-anywhere-3s"),
     rating: 4.5,
     reviewCount: 291,
-    merchant: "logitech.com",
+    merchant: "besttech.com",
     chips: ["Wireless", "Compact", "Travel", "8K DPI", "Under $80"],
     aiOverview: {
       lead: "MX Anywhere 3S is a compact performance mouse for people who work from more than one desk — 8K DPI tracking, quiet MagSpeed scrolling, and a shape that fits in a bag.",
@@ -265,7 +265,7 @@ export const searchPacks = [
     },
     sources: [
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Product",
         title: "MX Anywhere 3S Compact Performance Mouse",
         snippet: "Desktop tracking in a mouse that disappears into a laptop sleeve.",
@@ -273,7 +273,7 @@ export const searchPacks = [
         href: "/products/mx-anywhere-3s",
       },
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Compare",
         title: "MX Master 3S — full-size alternative",
         snippet: "More buttons, a sculpted rest, and the same sensor family for all-day desk work.",
@@ -287,12 +287,12 @@ export const searchPacks = [
         duration: "4:11",
         image: productOf("mx-anywhere-3s").gallery[0],
         href: "/products/mx-anywhere-3s",
-        source: "Logitech",
+        source: "Best Tech",
       },
     ],
     webResults: [
       {
-        urlLabel: "https://www.logitech.com › products › mice › mx-anywhere-3s",
+        urlLabel: "https://www.besttech.com › products › mice › mx-anywhere-3s",
         title: "MX Anywhere 3S Compact Performance Mouse",
         snippet: "8K DPI, quiet MagSpeed, and USB-C charging in a compact wireless mouse.",
         href: "/products/mx-anywhere-3s",
@@ -312,10 +312,10 @@ export const searchPacks = [
     product: productOf("brio-4k"),
     rating: 4.4,
     reviewCount: 512,
-    merchant: "logitech.com",
+    merchant: "besttech.com",
     chips: ["4K", "Webcams", "HDR", "Windows Hello", "Under $130"],
     aiOverview: {
-      lead: "The 4K Pro Webcam (Brio) is Logitech's flagship Ultra HD camera for people who need to look sharp on calls and streams — 4K at 30 fps, HDR, and RightLight 3.",
+      lead: "The 4K Pro Webcam (Brio) is Best Tech's flagship Ultra HD camera for people who need to look sharp on calls and streams — 4K at 30 fps, HDR, and RightLight 3.",
       highlights: ["flagship Ultra HD camera", "4K at 30 fps", "HDR", "RightLight 3"],
       features: [
         "Ultra HD 4K at 30 fps, or 1080p at 60 fps",
@@ -328,7 +328,7 @@ export const searchPacks = [
     },
     sources: [
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Product",
         title: "4K Pro Webcam (Brio)",
         snippet: "Premium Ultra HD video with HDR and RightLight, built for professionals and streamers.",
@@ -336,7 +336,7 @@ export const searchPacks = [
         href: "/products/brio-4k",
       },
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Lighting",
         title: "Litra Glow — pair with Brio for better light",
         snippet: "TrueSoft LED fill that clips to a monitor and runs over USB.",
@@ -355,9 +355,9 @@ export const searchPacks = [
     ],
     webResults: [
       {
-        urlLabel: "https://www.logitech.com › products › webcams › 4k-pro",
+        urlLabel: "https://www.besttech.com › products › webcams › 4k-pro",
         title: "4K Pro Webcam (Brio) — Premium Ultra HD Webcam",
-        snippet: "4K, HDR, RightLight 3, and Windows Hello in Logitech's professional webcam.",
+        snippet: "4K, HDR, RightLight 3, and Windows Hello in Best Tech's professional webcam.",
         href: "/products/brio-4k",
       },
     ],
@@ -375,7 +375,7 @@ export const searchPacks = [
     product: productOf("litra-glow"),
     rating: 4.6,
     reviewCount: 187,
-    merchant: "logitech.com",
+    merchant: "besttech.com",
     chips: ["Lighting", "Streaming", "USB-powered", "TrueSoft", "Under $60"],
     aiOverview: {
       lead: "Litra Glow is a compact USB LED streaming light with TrueSoft diffusion — built to make skin tones look natural on camera without a full lighting kit.",
@@ -387,11 +387,11 @@ export const searchPacks = [
         "Powered over USB — no extra brick",
         "Made with recycled materials",
       ],
-      more: "Use it with the 4K Pro Webcam when overhead lights make you look washed out. Controls live on the light and in Logitech’s desktop software.",
+      more: "Use it with the 4K Pro Webcam when overhead lights make you look washed out. Controls live on the light and in Best Tech’s desktop software.",
     },
     sources: [
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Product",
         title: "Litra Glow Premium LED Streaming Light",
         snippet: "Broadcast-style fill light in a USB-powered bar that clips to any monitor.",
@@ -399,7 +399,7 @@ export const searchPacks = [
         href: "/products/litra-glow",
       },
       {
-        site: "logitech.com",
+        site: "besttech.com",
         kind: "Webcam",
         title: "4K Pro Webcam — the camera Litra Glow is built for",
         snippet: "Ultra HD video that actually benefits from decent light.",
@@ -418,7 +418,7 @@ export const searchPacks = [
     ],
     webResults: [
       {
-        urlLabel: "https://www.logitech.com › products › lighting › litra-glow",
+        urlLabel: "https://www.besttech.com › products › lighting › litra-glow",
         title: "Litra Glow Premium LED Streaming Light",
         snippet: "TrueSoft LED lighting that clips to a monitor and runs over USB.",
         href: "/products/litra-glow",

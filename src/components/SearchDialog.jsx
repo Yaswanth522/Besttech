@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { resolveSearch } from "../data/search";
+import { products } from "../data/products";
 import { prewarmLogi } from "../utils/logiBridge";
 import { useLogiAnswer } from "../utils/useLogiAnswer";
 import LogiAnswer from "./LogiAnswer";
@@ -19,10 +20,20 @@ import "./SearchDialog.css";
  */
 const SUGGESTIONS = [
   "How do I set up my MX Master 3S?",
-  "How do I pair a Logitech keyboard using Easy-Switch?",
+  "How do I pair a Best Tech keyboard using Easy-Switch?",
   "How do I set up my Brio 4K webcam?",
   "What is MX Master 3S?",
 ];
+
+/** Instant, local product matches while the customer types. */
+function matchProducts(text) {
+  const words = text.toLowerCase().split(/\s+/).filter((w) => w.length > 1);
+  if (!words.length) return [];
+  return products.filter((p) => {
+    const hay = `${p.name} ${p.category} ${p.tagline}`.toLowerCase();
+    return words.some((w) => hay.includes(w));
+  });
+}
 
 export default function SearchDialog({ open, onClose }) {
   const [query, setQuery] = useState("");
@@ -32,6 +43,8 @@ export default function SearchDialog({ open, onClose }) {
 
   const answer = useLogiAnswer(asked, { enabled: open });
   const product = asked ? resolveSearch(asked).pack?.product : null;
+  const matches = !asked && query.trim() ? matchProducts(query) : [];
+  const shownProducts = query.trim() && !asked ? matches : products;
 
   useEffect(() => {
     if (!open) return;
@@ -77,19 +90,24 @@ export default function SearchDialog({ open, onClose }) {
         className="search-dialog"
         role="dialog"
         aria-modal="true"
-        aria-label="Ask Logi"
+        aria-label="Ask Best Tech"
         onMouseDown={(e) => e.stopPropagation()}
       >
         <form className="search-dialog__form" onSubmit={handleSubmit}>
-          <SearchIcon />
+          <SparkleIcon />
           <input
             ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Ask Logi — the same assistant as chat"
-            aria-label="Ask Logi"
+            placeholder="Search products or ask Best Tech a question"
+            aria-label="Ask Best Tech"
           />
+          {query && !asked && (
+            <button type="submit" className="search-dialog__ask">
+              Ask
+            </button>
+          )}
           {query && (
             <button
               type="button"
@@ -110,37 +128,93 @@ export default function SearchDialog({ open, onClose }) {
 
         <div className="search-dialog__body">
           {!asked ? (
-            <div className="search-dialog__suggestions">
-              <span className="search-dialog__label">Try asking</span>
-              <div className="search-dialog__chips">
-                {SUGGESTIONS.map((s) => (
-                  <button key={s} type="button" onClick={() => ask(s)}>
-                    {s}
-                  </button>
-                ))}
+            <>
+              {(shownProducts.length > 0 || query.trim()) && (
+                <div className="search-dialog__section">
+                  <span className="search-dialog__label">
+                    {query.trim() ? "Matching products" : "Popular products"}
+                  </span>
+                  {shownProducts.length ? (
+                    <ul className="search-dialog__products">
+                      {shownProducts.map((p) => (
+                        <li key={p.slug}>
+                          <button type="button" onClick={() => goTo(`/products/${p.slug}`)}>
+                            <span className="search-dialog__product-img">
+                              <img src={p.heroImage} alt="" />
+                            </span>
+                            <span className="search-dialog__product-copy">
+                              <strong>{p.name}</strong>
+                              <em>{p.tagline}</em>
+                            </span>
+                            <span className="search-dialog__product-price">${p.price.toFixed(2)}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="search-dialog__empty">
+                      No products match “{query.trim()}”. Press Enter to ask Best Tech instead.
+                    </p>
+                  )}
+                </div>
+              )}
+
+              <div className="search-dialog__section search-dialog__suggestions">
+                <span className="search-dialog__label">Try asking</span>
+                <div className="search-dialog__chips">
+                  {SUGGESTIONS.map((s) => (
+                    <button key={s} type="button" onClick={() => ask(s)}>
+                      <SparkleIcon size={14} />
+                      {s}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            </>
           ) : (
-            <LogiAnswer
-              compact
-              query={asked}
-              answer={answer}
-              product={product}
-              onGo={goTo}
-              onContinue={onClose}
-            />
+            <>
+              <LogiAnswer
+                compact
+                query={asked}
+                answer={answer}
+                product={product}
+                onGo={goTo}
+                onContinue={onClose}
+              />
+              <button
+                type="button"
+                className="search-dialog__all"
+                onClick={() => goTo(`/search?q=${encodeURIComponent(asked)}`)}
+              >
+                See all results for “{asked}” <span aria-hidden="true">→</span>
+              </button>
+            </>
           )}
+        </div>
+
+        <div className="search-dialog__footer" aria-hidden="true">
+          <span><kbd>↵</kbd> to ask</span>
+          <span><kbd>Esc</kbd> to close</span>
         </div>
       </div>
     </div>
   );
 }
 
-function SearchIcon() {
+function SparkleIcon({ size = 20 }) {
   return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="2" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <svg className="search-dialog__sparkle" width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      <defs>
+        <linearGradient id="search-sparkle" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#6d28d9" />
+          <stop offset="0.55" stopColor="#c026d3" />
+          <stop offset="1" stopColor="#ff6b3d" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#search-sparkle)"
+        d="M11 2l1.9 5.6L18.5 9.5l-5.6 1.9L11 17l-1.9-5.6L3.5 9.5l5.6-1.9L11 2Zm8 11l.9 2.6 2.6.9-2.6.9L19 20l-.9-2.6-2.6-.9 2.6-.9L19 13Z"
+      />
     </svg>
   );
 }

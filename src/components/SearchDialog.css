@@ -1,8 +1,10 @@
 .search-dialog__backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(27, 27, 27, 0.5);
+  background: rgba(18, 12, 38, 0.55);
+  backdrop-filter: blur(4px);
   z-index: 200;
+  animation: search-fade 0.15s ease;
   display: flex;
   justify-content: center;
   padding: 12vh 24px 24px;
@@ -14,9 +16,165 @@
   max-width: 680px;
   height: fit-content;
   background: var(--color-white);
-  border-radius: 20px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+  border-radius: 22px;
+  box-shadow: 0 40px 80px -20px rgba(18, 12, 38, 0.5);
   overflow: hidden;
+  position: relative;
+  animation: search-pop 0.18s ease;
+}
+
+.search-dialog::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: var(--brand-gradient);
+}
+
+@keyframes search-fade {
+  from { opacity: 0; }
+}
+
+@keyframes search-pop {
+  from { opacity: 0; transform: translateY(-8px) scale(0.98); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-dialog__backdrop,
+  .search-dialog {
+    animation: none;
+  }
+}
+
+.search-dialog__section + .search-dialog__section {
+  margin-top: 24px;
+}
+
+.search-dialog__products {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-dialog__products button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 14px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.search-dialog__products button:hover,
+.search-dialog__products button:focus-visible {
+  background: #f5f1ff;
+  outline: none;
+}
+
+.search-dialog__product-img {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 12px;
+  background: linear-gradient(160deg, #f5f1ff 0%, #fdf2f8 55%, #fff4ee 100%);
+}
+
+.search-dialog__product-img img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.search-dialog__product-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-dialog__product-copy strong {
+  display: block;
+  font-size: 15px;
+  color: var(--color-ink);
+}
+
+.search-dialog__product-copy em {
+  display: block;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--color-gray-700);
+}
+
+.search-dialog__product-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.search-dialog__ask {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: var(--brand-gradient);
+  color: var(--color-white);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.search-dialog__ask:hover {
+  opacity: 0.9;
+}
+
+.search-dialog__all {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-gray-100);
+  border-radius: 14px;
+  background: var(--color-gray-50);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-dialog__all:hover {
+  border-color: #c4b5fd;
+  background: #f5f1ff;
+}
+
+.search-dialog__footer {
+  display: flex;
+  gap: 18px;
+  padding: 10px 24px;
+  border-top: 1px solid var(--color-gray-100);
+  background: var(--color-gray-50);
+  font-size: 12px;
+  color: var(--color-gray-500);
+}
+
+.search-dialog__footer kbd {
+  display: inline-block;
+  min-width: 22px;
+  padding: 2px 6px;
+  margin-right: 4px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: 6px;
+  background: var(--color-white);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-gray-700);
 }
 
 .search-dialog__suggestions {
@@ -32,16 +190,22 @@
 }
 
 .search-dialog__chips button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   border: 1px solid var(--color-gray-100);
   background: var(--color-gray-50);
   border-radius: 999px;
-  padding: 7px 12px;
+  padding: 8px 14px;
   font-size: 13px;
+  color: var(--color-ink);
   cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .search-dialog__chips button:hover {
-  border-color: var(--color-gray-300);
+  border-color: #c4b5fd;
+  background: #f5f1ff;
 }
 
 .search-dialog__form + .search-dialog__body .search-dialog__chips {
@@ -100,7 +264,7 @@
 .search-dialog__body {
   padding: 20px 24px 24px;
   min-height: 160px;
-  max-height: min(62vh, 560px);
+  max-height: min(60vh, 540px);
   overflow-y: auto;
 }
 
@@ -300,5 +464,16 @@
     max-width: none;
     height: 100%;
     border-radius: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-dialog__body {
+    flex: 1;
+    max-height: none;
+  }
+
+  .search-dialog__footer {
+    display: none;
   }
 }

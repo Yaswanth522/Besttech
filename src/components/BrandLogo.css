@@ -1,0 +1,37 @@
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 26px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.brand-logo__mark {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+}
+
+.brand-logo__word {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: var(--color-ink);
+}
+
+.brand-logo__accent {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-logo--light .brand-logo__word {
+  color: var(--color-white);
+}
+
+.brand-logo--light .brand-logo__accent {
+  background: linear-gradient(90deg, #c4b5fd, #f0abfc 50%, #ffb199);
+  -webkit-background-clip: text;
+  background-clip: text;
+}

@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { LOGO_URL } from "../data/brand";
+import BrandLogo from "./BrandLogo";
 import "./Footer.css";
 
 const COLUMNS = [
   {
-    title: "Logitech",
+    title: "Best Tech",
     groups: [
       {
         links: [
@@ -103,75 +103,82 @@ const COLUMNS = [
 export default function Footer() {
   return (
     <footer className="site-footer">
+      <div className="site-footer__glow" aria-hidden="true" />
       <div className="container">
-        <div className="site-footer__trademark">
-          <h4>Legal Trademark Statement</h4>
-          <p>
-            Logitech, Logi, their logos, and all other Logitech trademarks
-            are trademarks or registered trademarks of Logitech Europe S.A.
-            and/or its affiliates in the U.S. and other countries. All other
-            third party trademarks are the property of their respective
-            owners. <Link to="/">See all trademarks</Link>
-          </p>
-        </div>
-
         <div className="site-footer__newsletter">
-          <div>
+          <div className="site-footer__newsletter-copy">
             <h3>Subscribe to receive your special offer and exclusive benefits.</h3>
-            <form
-              className="site-footer__form"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input type="email" placeholder="Email address" aria-label="Email address" />
-              <button type="submit" className="btn btn-primary" aria-label="Subscribe">
-                Subscribe
-              </button>
-            </form>
             <label className="site-footer__consent">
               <input type="checkbox" />
               <span>
-                I want personalized marketing from Logitech. You can
+                I want personalized marketing from Best Tech. You can
                 unsubscribe anytime. See our{" "}
                 <Link to="/">Privacy Policy.</Link>
               </span>
             </label>
           </div>
+          <form className="site-footer__form" onSubmit={(e) => e.preventDefault()}>
+            <input type="email" placeholder="Email address" aria-label="Email address" />
+            <button type="submit" className="site-footer__subscribe" aria-label="Subscribe">
+              Subscribe
+            </button>
+          </form>
+        </div>
 
-          <div className="site-footer__social">
-            <a href="#" aria-label="Instagram" onClick={(e) => e.preventDefault()}>
-              <InstagramIcon />
-            </a>
-            <a href="#" aria-label="Twitter" onClick={(e) => e.preventDefault()}>
-              <TwitterIcon />
-            </a>
-            <a href="#" aria-label="Facebook" onClick={(e) => e.preventDefault()}>
-              <FacebookIcon />
-            </a>
-            <span className="site-footer__locale">US, en</span>
+        <div className="site-footer__main">
+          <div className="site-footer__brand">
+            <Link to="/" aria-label="Best Tech home">
+              <BrandLogo tone="light" />
+            </Link>
+            <div className="site-footer__social">
+              <a href="#" aria-label="Instagram" onClick={(e) => e.preventDefault()}>
+                <InstagramIcon />
+              </a>
+              <a href="#" aria-label="Twitter" onClick={(e) => e.preventDefault()}>
+                <TwitterIcon />
+              </a>
+              <a href="#" aria-label="Facebook" onClick={(e) => e.preventDefault()}>
+                <FacebookIcon />
+              </a>
+            </div>
+            <span className="site-footer__locale">
+              <GlobeIcon /> US, en
+            </span>
+          </div>
+
+          <div className="site-footer__columns">
+            {COLUMNS.map((col, i) => (
+              <div key={col.title ?? i} className="site-footer__column">
+                {col.groups.map((group) => (
+                  <div key={group.heading ?? col.title} className="site-footer__group">
+                    <h4>{group.heading ?? col.title}</h4>
+                    <ul>
+                      {group.links.map((label) => (
+                        <li key={label}>
+                          <Link to="/">{label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
 
-        <div className="site-footer__columns">
-          {COLUMNS.map((col, i) => (
-            <div key={col.title ?? i} className="site-footer__column">
-              {col.groups.map((group) => (
-                <div key={group.heading ?? col.title} className="site-footer__group">
-                  <h4>{group.heading ?? col.title}</h4>
-                  <ul>
-                    {group.links.map((label) => (
-                      <li key={label}>
-                        <Link to="/">{label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          ))}
+        <div className="site-footer__trademark">
+          <h4>Legal Trademark Statement</h4>
+          <p>
+            Best Tech, its logos, and all other Best Tech trademarks are
+            trademarks or registered trademarks of Best Tech and/or its
+            affiliates in the U.S. and other countries. All other third party
+            trademarks are the property of their respective owners.{" "}
+            <Link to="/">See all trademarks</Link>
+          </p>
         </div>
 
         <div className="site-footer__bottom">
-          <p>&copy; {new Date().getFullYear()} Logitech. All rights reserved</p>
+          <p>&copy; {new Date().getFullYear()} Best Tech. All rights reserved</p>
           <ul className="site-footer__legal-links">
             <li>
               <Link to="/">Terms of Use</Link>
@@ -189,8 +196,19 @@ export default function Footer() {
         </div>
       </div>
 
-      <img src={LOGO_URL} alt="Logitech" className="site-footer__wordmark" />
+      <div className="site-footer__wordmark" aria-hidden="true">
+        best<span>tech</span>
+      </div>
     </footer>
+  );
+}
+
+function GlobeIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" stroke="currentColor" strokeWidth="1.8" />
+    </svg>
   );
 }
 

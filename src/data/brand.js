@@ -1,2 +1,9 @@
-// Real Logitech wordmark SVG, hotlinked from Logitech's own Logi ID asset host.
-export const LOGO_URL = "https://id.logi.com/dccd9087eb658a5474eb27d1b43901a4.svg";
+// Best Tech brand tokens. The logo itself lives in components/BrandLogo.jsx so
+// it renders in the site font and can switch between light/dark surfaces.
+export const BRAND_NAME = "Best Tech";
+
+export const BRAND_COLORS = {
+  violet: "#6d28d9",
+  magenta: "#c026d3",
+  coral: "#ff6b3d",
+};

@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import Carousel from "./Carousel";
 import { products } from "../data/products";
 import "./FeaturedProducts.css";
 
@@ -6,12 +7,11 @@ export default function FeaturedProducts() {
   return (
     <section className="section featured-products">
       <div className="container">
-        <h2 className="section-title">Shop Our Products</h2>
-        <div className="featured-products__grid">
+        <Carousel title="Shop Our Products">
           {products.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

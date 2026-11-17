@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import BrandLogo from "../components/BrandLogo";
 import "./Login.css";
 
 const icon = (hash) => `https://id.logi.com/${hash}.svg`;
 
-const LOGO = icon("dccd9087eb658a5474eb27d1b43901a4");
 const INFO_ICON = icon("c85985b1ba78361f503cb23610c803ea");
 
 const PROVIDERS = [
@@ -47,8 +47,8 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-container">
-        <img src={LOGO} alt="Logitech" className="login-logo" />
-        <p className="login-subtitle">Log in with your Logi ID.</p>
+        <BrandLogo className="login-logo" />
+        <p className="login-subtitle">Log in with your Best Tech ID.</p>
 
         <form onSubmit={handleSubmit} className="login-form">
           <div className="field">
@@ -134,7 +134,7 @@ export default function Login() {
           Create an Account
         </a>
         <a href="#" className="bottom-link" onClick={(e) => e.preventDefault()}>
-          About Logi ID
+          About Best Tech ID
         </a>
       </div>
     </div>

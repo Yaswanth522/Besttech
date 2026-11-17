@@ -32,7 +32,7 @@ export function stripSourcesSection(markdown) {
 /** Assistant markdown -> sanitized HTML. */
 export function renderAnswer(markdown) {
   if (!markdown) return "";
-  const html = marked.parse(markdown, { async: false });
+  const html = marked.parse(rebrand(markdown), { async: false });
   return DOMPurify.sanitize(html, { ADD_ATTR: ["target", "rel"] });
 }
 
@@ -50,7 +50,16 @@ export function cleanTitle(title) {
   return (title || "")
     .replace(/\s*[–—-]\s*Logitech Support \+ Download\s*$/i, "")
     .replace(/\s*\|\s*Logitech\s*$/i, "")
+    .replace(BRAND_RE, "Best Tech")
     .trim();
+}
+
+// Not inside URL slugs/paths ("…-Logitech-Reach", "/logitech/").
+const BRAND_RE = /(?<![\w/.-])Logitech(?![\w-])/g;
+
+/** Swap the upstream brand name in visible copy; lowercase URLs are untouched. */
+function rebrand(text) {
+  return text.replace(BRAND_RE, "Best Tech");
 }
 
 function hostOf(url) {

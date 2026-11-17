@@ -9,15 +9,19 @@
   --color-gray-100: #eaebed;
   --color-gray-50: #fbfbfb;
   --color-hero-bg: #eeeeee;
-  --color-accent: #2100ff;
-  --color-accent-dark: #1a00cc;
-  --color-cyan: #00b8fc;
-  --color-teal: #00fdcf;
-  --color-ribbon-bg: #d6f5f0;
-  --color-ribbon-fg: #0d3a38;
+  --color-accent: #6d28d9;
+  --color-accent-dark: #5b21b6;
+  --color-magenta: #c026d3;
+  --color-coral: #ff6b3d;
+  --color-cyan: #ff9a6b;
+  --color-teal: #ff6b3d;
+  --color-ribbon-bg: #f1ebff;
+  --color-ribbon-fg: #3b0a7a;
   --color-success: #037909;
   --color-sale: #d62929;
-  --color-sustain-dark: #0d3a38;
+  --color-sustain-dark: #1e1340;
+  --color-night: #120c26;
+  --brand-gradient: linear-gradient(120deg, #6d28d9 0%, #c026d3 55%, #ff6b3d 100%);
 
   --font-sans: "Roboto", "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
     sans-serif;
@@ -127,8 +131,8 @@ p {
 }
 
 .btn-teal {
-  background: var(--color-teal);
-  color: var(--color-black);
+  background: var(--brand-gradient);
+  color: var(--color-white);
 }
 
 .btn-teal:hover {

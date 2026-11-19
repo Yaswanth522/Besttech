@@ -7,3 +7,6 @@ export const BRAND_COLORS = {
   magenta: "#c026d3",
   coral: "#ff6b3d",
 };
+
+// Where "Best Tech Business" in the header sends people. Opens in a new tab.
+export const BUSINESS_URL = "https://logitech-business.vercel.app/";

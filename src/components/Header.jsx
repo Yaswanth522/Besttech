@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { initialsFromName } from "../utils/name";
 import { routeFor } from "../data/routes";
 import { products } from "../data/products";
+import { BUSINESS_URL } from "../data/brand";
 import BrandLogo from "./BrandLogo";
 import SearchDialog from "./SearchDialog";
 import "./Header.css";
@@ -82,31 +83,6 @@ export default function Header() {
 
   return (
     <header className={`site-header${scrolled ? " is-scrolled" : ""}${megaOpen ? " is-mega-open" : ""}`}>
-      <div className="utility-bar">
-        <div className="container utility-bar__inner">
-          <ul className="utility-bar__left">
-            <li>
-              <Link to="/">Best Tech G</Link>
-            </li>
-            <li>
-              <Link to="/">Business</Link>
-            </li>
-            <li>
-              <Link to="/">Education</Link>
-            </li>
-            <li>
-              <Link to="/">Outlet</Link>
-            </li>
-          </ul>
-          <ul className="utility-bar__right">
-            <li>
-              <Link to="/">Support</Link>
-            </li>
-            <li>US, en</li>
-          </ul>
-        </div>
-      </div>
-
       <div className="announcement-bar">
         <span>Save up to $100 when you bundle MX Master 4*</span>
       </div>
@@ -215,6 +191,20 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
+
+              <li className="site-header__business-item">
+                <a
+                  href={BUSINESS_URL}
+                  className="site-header__business"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  <BriefcaseIcon />
+                  Best Tech Business
+                  <ExternalIcon />
+                </a>
+              </li>
             </ul>
           </nav>
 
@@ -266,6 +256,23 @@ export default function Header() {
 
       <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
+  );
+}
+
+function BriefcaseIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="7" width="18" height="13" rx="2.5" stroke="currentColor" strokeWidth="2" />
+      <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7M3 12.5h18" stroke="currentColor" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function ExternalIcon() {
+  return (
+    <svg className="site-header__business-ext" width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 

@@ -8,8 +8,7 @@
  */
 
 import { openLogiChat } from "../utils/logiBridge";
-import { cleanTitle, extractSources, renderAnswer, stripSourcesSection } from "../utils/logiMarkdown";
-import { supportArticlesFor } from "../data/kbArticles";
+import { extractSources, renderAnswer, stripSourcesSection } from "../utils/logiMarkdown";
 import "./LogiAnswer.css";
 
 export default function LogiAnswer({ query, answer, product, onGo, onContinue, compact = false }) {
@@ -19,14 +18,9 @@ export default function LogiAnswer({ query, answer, product, onGo, onContinue, c
   // The assistant lists its own citations at the end of the reply; they render
   // as cards below instead, so the tail comes off the body.
   const body = sources.length > 0 ? stripSourcesSection(text) : text;
-  // Articles already cited shouldn't reappear under "more reading".
-  const cited = new Set(sources.map((s) => s.url));
-  const related = (product ? supportArticlesFor(product.slug) : []).filter(
-    (a) => !cited.has(a.url)
-  );
   /**
    * Everything below the answer waits for the answer. Committing the actions
-   * and the reading list while the reply is still a skeleton makes the answer
+   * while the reply is still a skeleton makes the answer
    * itself look like an afterthought slotted into finished furniture. The
    * timeout state is the exception — it has no answer but still needs the way
    * out that its copy points at.
@@ -107,20 +101,6 @@ export default function LogiAnswer({ query, answer, product, onGo, onContinue, c
           )}
         </div>
 
-        {hasAnswer && related.length > 0 && (
-          <aside className="logi-answer__rail" aria-label="More support articles">
-            <span className="logi-answer__label">More on {product.name}</span>
-            <ul>
-              {related.map((a) => (
-                <li key={a.url}>
-                  <a href={a.url} target="_blank" rel="noreferrer noopener">
-                    {cleanTitle(a.title)}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        )}
       </div>
     </section>
   );

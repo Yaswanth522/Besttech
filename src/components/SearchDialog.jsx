@@ -181,13 +181,6 @@ export default function SearchDialog({ open, onClose }) {
                 onGo={goTo}
                 onContinue={onClose}
               />
-              <button
-                type="button"
-                className="search-dialog__all"
-                onClick={() => goTo(`/search?q=${encodeURIComponent(asked)}`)}
-              >
-                See all results for “{asked}” <span aria-hidden="true">→</span>
-              </button>
             </>
           )}
         </div>
